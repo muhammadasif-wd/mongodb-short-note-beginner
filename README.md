@@ -109,7 +109,7 @@ useEffect(() => {
 ```Js
 app.get("/service/:id", async (req, res) => {
 const id = req.params.id;
-const result = await testCollection.find({ \_id: ObjectId(id) }).toArray();
+const result = await testCollection.find({ _id: ObjectId(id) }).toArray();
 res.send(result);
 });
 ```
