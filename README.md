@@ -30,8 +30,7 @@
 const express = require("express");
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
-const jwt = require("jsonwebtoken"); // import jwt if use JsonWeb token
-require("dotenv").config(); // import env file if use environment variables after install || npm install dotenv --save|| ane Create a .env file in the root of your project:
+require("dotenv").config();
 
 const port = process.env.PORT || 5000;
 const app = express();
@@ -40,8 +39,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Connact With MongoDb Database
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.krxly.mongodb.net/?retryWrites=true&w=majority`;
+// Connect With MongoDb Database
+const uri = `${process.env.DB_URI}`;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -49,30 +48,28 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
-// Create a async fucntion to all others activity
+// Create a async function to all others activity
 async function run() {
   try {
     await client.connect();
 
     // Create Database to store Data
-    const testCollection = client.db("testDatabaseName").collection("testData");
-
-
+    const noteCollection = client.db("noteDatabaseName").collection("noteData");
   } finally {
-    // await client.close();
+    console.log("Successfully Database Connected.");
   }
 }
 
-// Call the fuction you decleare abobe
+// Call the function you declare abode
 run().catch(console.dir);
 
-// Root Api to cheack activity
+// Root Api to check activity
 app.get("/", (req, res) => {
-  res.send("Hello From NR Computers!");
+  res.send("Note Project!");
 });
 
 app.listen(port, () => {
-  console.log(`NR Computers listening on port ${port}`);
+  console.log(`Note Project listening on port ${port}`);
 });
 
 ```
