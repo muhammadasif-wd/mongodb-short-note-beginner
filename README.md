@@ -1,12 +1,6 @@
-# Express with Mongobd Tutorial (Basic)
+# Express with Mongobd Short Note as a beginner.
 
-## React Tutorial
-
-1. [React Inastallation](https://github.com/dev-nazmulislam/react-short-note/tree/installation)
-2. [React Fundamental Concepts](https://github.com/dev-nazmulislam/react-short-note/tree/react-fundamental)
-3. [React Advanced concepts](https://github.com/dev-nazmulislam/react-short-note/tree/advanced)
-
-## let start Express
+## Let's start Express
 
 [Starter template Basic Setup](#basic-setup)
 
